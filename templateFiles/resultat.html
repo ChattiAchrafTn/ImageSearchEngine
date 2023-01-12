@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="/staticFiles/main.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="icon" type="image/png" href="http://127.0.0.1:8080/staticFiles/logoS.png" />
+</head>
+
+<body>
+   <a href="http://localhost:5000/"><img src="http://127.0.0.1:8080/staticFiles/logoL.png" class="logo"></a>
+
+<div class="container main">
+	<div class="row">
+	  <div class="col-md-6"> 
+   <!---->
+      <form action = "http://localhost:5000/uploader" method = "POST" 
+      enctype = "multipart/form-data">
+              
+              <div class="form-group files">
+                <label>Upload Your File </label>
+                <input type="file" class="form-control" name = "file" required>
+              </div>
+              
+            
+         <input type = "submit"/>
+          </form>
+	<!---->
+	      
+	  </div>
+	   
+	   <div class="col-md-5" style="margin-left: 5%; margin-top: -2%;">
+	      
+         <h3>Votre image</h3>
+         <img src="{{target}}">
+         
+	  </div>
+	</div>
+
+</div>
+
+<div class="container bod">
+   <h1>Résultat</h1>
+   <h3>Images par ordre de pertinence</h3>
+   <br><br>
+   <div class="row">
+      {%for i in var%}
+      <div class="col-md-4" style="margin-bottom: 4%;">
+         <img src="{{i[0]}}" style="margin-right: 10%;">
+         <p>Distance : {{i[1]}}</p>
+      </div>
+      {%endfor%}
+   </div>
+</div>
+
+   
+</body>
+</html>
